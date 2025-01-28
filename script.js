@@ -20,15 +20,14 @@ document.getElementById("checkBtn").onclick = function() {
 
     if (password.includes(" "))
     {
-        output.innerHTML += "Password must not contain any spaces<br>";
+        output.innerHTML += "Password must not contain any spaces<br>"; // Prints each time
     }
-
 
     function hasUpperCase(pass) {
-        return pass !== pass.toLowerCase;
+        return pass !== pass.toLowerCase; // true; has an uppercase
     }
 
-    if (!hasUpperCase(password))
+    if (!hasUpperCase(password)) // if NOT true
     {
         output.innerHTML += "Password must contain an uppercase<br>";
     }
