@@ -1,35 +1,23 @@
 document.getElementById("checkBtn").onclick = function() {
     let password = document.getElementById("userPass").value;
+    output.innerHTML = "";
+
+    let validChecks = 0;
 
     // length
     if (password.length < 8) {
-        output.innerHTML  = "";
-        output.innerHTML += "Password Invalid<br>";
-        output.innerHTML += "Password not long enough!<br>";
+        output.innerHTML += "Password is invalid:<br>";
+        output.innerHTML += "Password must be at least 8 characters long.<br>";
     }
     
     // special characters
-    /*const passArray = password.split("");
-    const specialCharArray = ["!","@","$","%","^","&","*"];
-    for (let i = 0; i < password.length-1; i++) {
-        for (let k = 0; k < specialCharArray.length; k++) {
-            while (passArray[i] !== specialCharArray[k]) {
-                output.innerHTML += "Password does not contain special character!<br>";
-            }
-        }
-    }*/
-
-
     let special = ["!","@","$","%","^","&","*"];
-
-    // for int s = 0
-    // if password.charAt(0) == special[0]
 
     function  containsSpecialChars()
     {
         let passArray = (password.split(""));
         let match = 0;
-        for (let char = 0; char < password.length; char++) // minus 1 needs to be there
+        for (let char = 0; char < password.length; char++)
         {
             for (let s = 0; s < special.length; s++) // s means symbol
             {
@@ -46,7 +34,7 @@ document.getElementById("checkBtn").onclick = function() {
         }
         if (match > 0)
         {
-            output.innerHTML += "Password does not contain special character!<br>";
+            output.innerHTML += "Password must include at least one special character (!, @, #, etc.).<br>";
             return;
         }    
     }
@@ -55,26 +43,49 @@ document.getElementById("checkBtn").onclick = function() {
     // spaces
     if (password.includes(" "))
     {
-        output.innerHTML += "Password must not contain any spaces<br>"; // Prints each time
+        output.innerHTML += "Password must not contain any spaces.<br>";
     }
 
     // lowercase
     if (password == password.toLowerCase()) // if its lowercase
     {
-        output.innerHTML += "Password must contain an uppercase<br>";
+        output.innerHTML += "Password must include at least one uppercase letter.<br>";
     }
 
     // uppercase
     if (password == password.toUpperCase()) // if its uppercase
     {
-        output.innerHTML += "Password must contain a lowercase<br>";
+        output.innerHTML += "Password must include at least one lowercase letter.<br>";
     }
 
-    // has a digit
-    /*function hasDigit(pass)
+    // digit
+    let nums = ["0","1","2","3","4","5","6", "7", "8", "9"];
+
+    function  containsDigit()
     {
-        return pass != isNaN;
-    }*/
+        let passArray = (password.split(""));
+        let match = 0;
+        for (let char = 0; char < password.length; char++)
+        {
+            for (let s = 0; s < nums.length; s++) // s means symbol
+            {
+                if(password.charAt(char) !== nums[s])
+                {
+                    match += 1;
+                }
+                else
+                {
+                    return;
+                }
+            }
+        }
+        if (match > 0)
+        {
+            output.innerHTML += "Password must include at least one numeric digit.<br>";
+            return;
+        }    
+    }
+    containsDigit();
 }
 
 let output = document.getElementById('output');
