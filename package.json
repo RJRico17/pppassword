@@ -1,14 +1,22 @@
 {
-  "name": "javascript_passwordnew",
+  "name": "pppassword",
   "version": "1.0.0",
   "main": "app.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RJRico17/pppassword.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RJRico17/pppassword/issues"
+  },
+  "homepage": "https://github.com/RJRico17/pppassword#readme",
   "description": "",
   "dependencies": {
     "express": "^4.21.2"

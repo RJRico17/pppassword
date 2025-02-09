@@ -101,7 +101,7 @@ document.getElementById("checkBtn").onclick = function() {
     if (fail == false)
     {
         output.innerHTML = "";
-        success.innerHTML += "Password is valid!";
+        success.innerHTML = "Password is valid!";
     }
 }
 
